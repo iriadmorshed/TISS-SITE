@@ -28,7 +28,7 @@ export const companyData = {
   internationalFormationCount: 5,
   internationalCountries: ['Hong Kong', 'Thailand', 'United Kingdom (UK)', 'China', 'India'],
   internationalFormationNote:
-    'Active international operations and corporate formation footprint across five countries: Hong Kong, Thailand, United Kingdom (UK), China, and India, anchored by headquarters in Bangladesh.',
+    'Active multi-jurisdictional operations across independent corporate chapters: Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India, with each chapter operating autonomously within the group network.',
 
   // Corporate Approach Pillars
   pillars: [

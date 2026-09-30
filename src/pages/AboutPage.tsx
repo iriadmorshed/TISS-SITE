@@ -11,7 +11,7 @@ export const AboutPage: React.FC = () => {
     <>
       <SEO
         title="About TISS Corporation — Corporate Overview & Architecture"
-        description="Learn about TISS Co. Ltd. (TISS Corporation), a diversified business group with headquarters in Uttara, Dhaka and an international background across five countries."
+        description="Learn about TISS Co. Ltd. (TISS Corporation), a diversified business group operating across independent chapters in Bangladesh, Hong Kong, Thailand, UK, China, and India."
         canonicalPath="/about"
       />
 
@@ -52,11 +52,11 @@ export const AboutPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-8 bg-white border border-slate-200 shadow-sm">
                 <span className="text-[11px] font-mono uppercase text-[#0284C7] font-bold block mb-2">
-                  Operating Root & Headquarters
+                  Operating Chapter
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Bangladesh Foundation</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Bangladesh Chapter</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  Active commercial operations in Bangladesh since 2017, anchored by Corporate Offices in
+                  Active commercial operations in Bangladesh since 2017, with Corporate Offices in
                   Sector-13 and Registered Offices in Sec-15D, Uttara, Dhaka-1230.
                 </p>
               </div>
@@ -65,10 +65,10 @@ export const AboutPage: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-purple-600 font-bold block mb-2">
                   International Operations
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">5-Country Footprint</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Autonomous Chapters</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   Active commercial operations and corporate presence across <strong>Hong Kong, Thailand, UK, China, and India</strong>,
-                  anchored by corporate headquarters in Bangladesh.
+                  operating alongside Bangladesh as independent sovereign chapters.
                 </p>
               </div>
 

@@ -14,7 +14,7 @@ export const GlobalFormationVisual: React.FC = () => {
       verified: true,
       publish: true,
       description:
-        'Corporate operational headquarters in Uttara, Dhaka-1230, conducting active multi-sector business operations since 2017.',
+        'Independent operating chapter in Uttara, Dhaka-1230, conducting active multi-sector business operations since 2017.',
     },
     {
       country: 'Hong Kong',
@@ -90,8 +90,8 @@ export const GlobalFormationVisual: React.FC = () => {
             Global Operations & Formation Coordinates
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-medium">
-            TISS Corporation maintains commercial operations and corporate presence across Hong Kong,
-            Thailand, United Kingdom, China, and India, anchored by our operational headquarters in Bangladesh.
+            TISS Corporation maintains commercial operations and corporate presence across autonomous chapters:
+            Bangladesh, Hong Kong, Thailand, United Kingdom, China, and India.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export const GlobalFormationVisual: React.FC = () => {
               <line x1="800" y1="50" x2="800" y2="370" />
             </g>
 
-            {/* Connecting Trade Arcs from Bangladesh HQ to each country */}
+            {/* Connecting Trade Arcs between autonomous chapters */}
             <g stroke="#0284C7" strokeWidth="1.5" strokeOpacity="0.4" strokeDasharray="3 3">
               {/* BD to UK */}
               <path d="M 640 220 Q 520 120 400 130" fill="none" />
@@ -131,7 +131,7 @@ export const GlobalFormationVisual: React.FC = () => {
               <path d="M 640 220 Q 600 230 570 230" fill="none" />
             </g>
 
-            {/* 1. Operational HQ: Bangladesh */}
+            {/* 1. Independent Chapter: Bangladesh */}
             <g>
               <circle cx="640" cy="220" r="28" fill="none" stroke="#0284C7" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.8" />
               <circle cx="640" cy="220" r="14" fill="#FFFFFF" stroke="#0284C7" strokeWidth="3" className="drop-shadow-sm" />
@@ -140,7 +140,7 @@ export const GlobalFormationVisual: React.FC = () => {
                 BANGLADESH
               </text>
               <text x="640" y="275" textAnchor="middle" fill="#334155" fontSize="10" fontWeight="700" fontFamily="Manrope, sans-serif">
-                Corporate HQ (Since 2017)
+                Independent Chapter (Since 2017)
               </text>
             </g>
 
@@ -209,12 +209,12 @@ export const GlobalFormationVisual: React.FC = () => {
         <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-600 gap-4 pt-4 border-t border-slate-200">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#0284C7]" />
-            <span className="text-slate-900 font-bold">Operational Headquarters: Bangladesh (Since 2017)</span>
+            <span className="text-slate-900 font-bold">Independent Operating Chapter: Bangladesh (Since 2017)</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#0284C7]" />
             <span className="text-slate-700 font-bold">
-              International Operations: Hong Kong, Thailand, UK, China, India
+              Autonomous Chapters: Hong Kong, Thailand, UK, China, India
             </span>
           </div>
         </div>
@@ -232,7 +232,7 @@ export const GlobalFormationVisual: React.FC = () => {
             </p>
           </div>
           <span className="text-xs font-mono px-3 py-1 bg-sky-50 border border-sky-200 text-[#0284C7] font-bold">
-            5 International Countries + BD HQ
+            6 Autonomous Country Chapters
           </span>
         </div>
 
@@ -271,7 +271,7 @@ export const GlobalFormationVisual: React.FC = () => {
                   <td className="py-3.5 px-4">
                     {c.office ? (
                       <span className="inline-flex items-center gap-1 text-sky-700 bg-sky-50 px-2 py-0.5 border border-sky-200 text-[10px] font-mono font-bold">
-                        Corporate HQ
+                        Registered Office
                       </span>
                     ) : (
                       <span className="text-slate-400 font-mono text-[10px]">Commercial Corridor</span>

@@ -96,7 +96,7 @@ export const HeroPortfolioNetwork: React.FC = () => {
             <div className="pt-6 border-t border-slate-200/90 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
               <div className="space-y-1 p-3 bg-white/70 border border-slate-200 shadow-xs hover:border-[#0284C7] transition-colors">
                 <span className="text-[10px] uppercase tracking-wider text-slate-500 block font-mono font-bold">
-                  Corporate HQ
+                  BD Chapter Office
                 </span>
                 <span className="text-slate-900 font-bold block">Uttara, Dhaka-1230</span>
               </div>
@@ -108,9 +108,9 @@ export const HeroPortfolioNetwork: React.FC = () => {
               </div>
               <div className="space-y-1 p-3 bg-white/70 border border-slate-200 shadow-xs hover:border-[#0284C7] transition-colors col-span-2 sm:col-span-1">
                 <span className="text-[10px] uppercase tracking-wider text-slate-500 block font-mono font-bold">
-                  Global Reach
+                  Operating Footprint
                 </span>
-                <span className="text-slate-900 font-bold block">5-Country Formation</span>
+                <span className="text-slate-900 font-bold block">Autonomous Chapters</span>
               </div>
             </div>
           </div>

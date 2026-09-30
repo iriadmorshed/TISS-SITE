@@ -9,8 +9,8 @@ export const GlobalPresencePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Global Presence — International Perspective & Bangladesh Foundation | TISS Corporation"
-        description="TISS Co. Ltd. (TISS Corporation) combines an operational headquarters in Uttara, Dhaka with an international company formation background across five countries."
+        title="Global Presence — Autonomous Operating Chapters | TISS Corporation"
+        description="TISS Co. Ltd. (TISS Corporation) operates across independent country chapters in Bangladesh, Hong Kong, Thailand, UK, China, and India."
         canonicalPath="/global-presence"
       />
 
@@ -28,19 +28,18 @@ export const GlobalPresencePage: React.FC = () => {
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <Globe2 className="w-4 h-4 text-[#0284C7]" />
-                <span>Jurisdictional Overview</span>
+                <span>Autonomous Jurisdictional Chapters</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-                An International Perspective. <br />
-                A Strong Bangladesh Foundation.
+                Autonomous Chapters. <br />
+                Global Commercial Connectivity.
               </h1>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-                TISS Corporation has been conducting commercial activities in Bangladesh since 2017,
-                complemented by active operations and corporate formation across five countries:
-                <span className="font-bold text-slate-900"> Hong Kong, Thailand, UK, China, and India</span>,
-                enriching our cross-border trade capabilities and governance.
+                TISS Corporation operates across independent sovereign chapters —
+                <span className="font-bold text-slate-900"> Bangladesh (operating since 2017), Hong Kong, Thailand, UK, China, and India</span> —
+                where each territory functions as an autonomous operating chapter within our unified international ecosystem.
               </p>
 
               <div className="p-5 bg-slate-50 border-l-4 border-[#0284C7] text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">

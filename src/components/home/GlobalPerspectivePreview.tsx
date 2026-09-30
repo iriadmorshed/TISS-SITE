@@ -79,28 +79,27 @@ export const GlobalPerspectivePreview: React.FC = () => {
             </h2>
 
             <p className="text-base text-slate-700 leading-relaxed font-medium">
-              TISS Co. Ltd. (TISS Corporation) pairs an established operational headquarters in
-              Bangladesh with active commercial operations and presence across Hong Kong, Thailand,
-              United Kingdom (UK), China, and India.
+              TISS Co. Ltd. (TISS Corporation) operates across autonomous international chapters including
+              Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India.
             </p>
 
             <div className="space-y-4 pt-1">
               <div className="p-5 bg-slate-50 border border-slate-200">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#0284C7] block font-bold mb-1">
-                  Company Formation Background
+                  International Corporate Footprint
                 </span>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  5 countries represented in corporate records, fostering cross-border trade relationships,
+                  Independent jurisdictional chapters facilitating cross-border trade relationships,
                   international supplier connections, and broad regulatory compliance awareness.
                 </p>
               </div>
 
               <div className="p-5 bg-slate-50 border border-slate-200">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#0284C7] block font-bold mb-1">
-                  Bangladesh Headquarters & Activities
+                  Bangladesh Chapter & Activities
                 </span>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  Active commercial operations, enterprise services, and modern headquarters located in
+                  An independent operating chapter with active commercial operations and modern offices located in
                   Uttara, Dhaka-1230, conducting activities in Bangladesh since 2017.
                 </p>
               </div>

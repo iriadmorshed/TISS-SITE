@@ -25,7 +25,7 @@ export const TickerBar: React.FC = () => {
     {
       icon: <Globe2 className="w-3.5 h-3.5 text-[#38BDF8]" />,
       label: 'Global Operations',
-      text: 'Operations in 5 Countries: Hong Kong, Thailand, UK, China, and India (HQ: Bangladesh)',
+      text: 'Operations Across Autonomous Chapters: Bangladesh, Hong Kong, Thailand, UK, China, and India',
       action: '/global-presence',
     },
     {
