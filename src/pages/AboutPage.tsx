@@ -56,8 +56,7 @@ export const AboutPage: React.FC = () => {
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Bangladesh Chapter</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  Active commercial operations in Bangladesh since 2017, with Corporate Offices in
-                  Sector-13 and Registered Offices in Sec-15D, Uttara, Dhaka-1230.
+                  Active commercial operations in Bangladesh since 2017, powered by a 150+ professional workforce across 3 corporate and operational facilities in Dhaka.
                 </p>
               </div>
 

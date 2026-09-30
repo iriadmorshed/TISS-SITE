@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe2, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Globe2, ShieldCheck, CheckCircle2, Building2, Layers, Cpu, Compass } from 'lucide-react';
 import { CountryPresence } from '../../types';
 
 export const GlobalFormationVisual: React.FC = () => {
@@ -10,97 +10,121 @@ export const GlobalFormationVisual: React.FC = () => {
       formation: true,
       operations: true,
       office: true,
+      officeType: '3 Corporate & Operational Hubs (Uttara, Dhaka)',
+      specializedFields: ['Enterprise Tech', '24/7 BPO', 'Supermarket Retail', 'Logistics', 'Ambient Media', 'Travel'],
+      scopeModel: 'diversified',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'Independent operating chapter in Uttara, Dhaka-1230, conducting active multi-sector business operations since 2017.',
+        'Independent operating chapter with 150+ professionals across 3 offices, managing diversified operations in technology, BPO, retail, freight, and media since 2017.',
+      legalAutonomyNote: 'Autonomous BD corporate entity adhering to Bangladesh statutory corporate & labor laws, interconnected via group communication network.',
     },
     {
       country: 'Hong Kong',
       countryCode: 'HK',
       formation: true,
       operations: true,
-      office: false,
+      office: true,
+      officeType: 'Chapter Office (Central, Hong Kong)',
+      specializedFields: ['Cross-Border Trade Finance', 'Foreign Exchange Settlement', 'Corporate Governance'],
+      scopeModel: 'specialized',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'International corporate gateway for cross-border trade structuring, foreign trade liaison, and commercial governance.',
+        'Dedicated chapter office serving as an international financial and trade gateway for structured multi-currency commerce and regional holding liaison.',
+      legalAutonomyNote: 'Operates as an independent Hong Kong registered company governed by Hong Kong corporate & financial regulations.',
     },
     {
       country: 'Thailand',
       countryCode: 'TH',
       formation: true,
       operations: true,
-      office: false,
+      office: true,
+      officeType: 'Chapter Office (Bangkok)',
+      specializedFields: ['Elevator & Ambient Media', 'FMCG Cross-Border Trade', 'Regional Travel Logistics'],
+      scopeModel: 'diversified',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'Regional Southeast Asian trade coordination, supply chain facilitation, and travel operations connectivity.',
+        'Dedicated chapter office coordinating multi-field activities across Southeast Asian digital ambient advertising, retail FMCG sourcing, and travel channels.',
+      legalAutonomyNote: 'Operates autonomously under Thailand commercial business laws and regional regulatory framework.',
     },
     {
       country: 'United Kingdom (UK)',
       countryCode: 'GB',
       formation: true,
       operations: true,
-      office: false,
+      office: true,
+      officeType: 'Chapter Office (London)',
+      specializedFields: ['European Business Advisory', 'Technology Consulting', 'Cross-Border Compliance'],
+      scopeModel: 'specialized',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'European enterprise trade facilitation, strategic commercial linkages, and international business advisory.',
+        'Dedicated chapter office delivering strategic European commercial linkages, bilateral trade facilitation, and technology consulting partnerships.',
+      legalAutonomyNote: 'Operates autonomously as a UK registered company complying with Companies House and UK commercial statutes.',
     },
     {
       country: 'China',
       countryCode: 'CN',
       formation: true,
       operations: true,
-      office: false,
+      office: true,
+      officeType: 'Chapter Office & Sourcing Hub (Guangzhou / Shenzhen)',
+      specializedFields: ['Hardware & Tech Sourcing', 'Factory QA Inspections', 'Export Freight Consolidation'],
+      scopeModel: 'specialized',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'Direct manufacturer supply chain coordination, hardware/tech sourcing, and international freight routing.',
+        'Dedicated chapter office commanding direct manufacturer relationships, electronics component procurement, quality inspection, and international maritime freight.',
+      legalAutonomyNote: 'Operates under PRC commercial and foreign trade legal standards, coordinated via group protocols.',
     },
     {
       country: 'India',
       countryCode: 'IN',
       formation: true,
       operations: true,
-      office: false,
+      office: true,
+      officeType: 'Chapter Office (Kolkata / Regional Corridor)',
+      specializedFields: ['Regional Agro-Commodities', 'Raw Jute Supply Corridors', 'Industrial Sourcing'],
+      scopeModel: 'specialized',
       commercialReach: true,
       verified: true,
       publish: true,
       description:
-        'Regional commodities sourcing, cross-border commercial trade pipelines, and enterprise raw material supply chain links.',
+        'Dedicated chapter office driving South Asian commodity trading, raw jute procurement, cross-border agro-logistics, and regional supply chain agreements.',
+      legalAutonomyNote: 'Operates autonomously under Indian corporate law and interstate commercial regulations.',
     },
   ]);
 
   return (
     <div className="space-y-12">
-      {/* Abstract World Grid Visualization in Light Theme */}
-      <div className="bg-white border border-slate-200 p-8 sm:p-12 shadow-sm">
+      {/* Network Architecture Map Graphic */}
+      <div className="bg-white border border-slate-200 p-6 sm:p-10 shadow-sm rounded-2xl">
         <div className="max-w-3xl mb-8">
           <span className="text-[11px] font-mono uppercase tracking-widest text-[#0284C7] font-bold">
-            International Network Geometry
+            Autonomous Chapter Architecture
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
-            Global Operations & Formation Coordinates
+            Dedicated Offices Across 6 Sovereign Jurisdictions
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-medium">
-            TISS Corporation maintains commercial operations and corporate presence across autonomous chapters:
-            Bangladesh, Hong Kong, Thailand, United Kingdom, China, and India.
+            Each country chapter maintains a physical office and operates with sovereign autonomy under its local
+            laws and corporate statutes. Specialized domain fields are handled in targeted territories (with diversified multi-sector operations in select chapters), while all chapters stay synchronized through standardized group communication systems.
           </p>
         </div>
 
         {/* Global Projection Graphic */}
-        <div className="w-full aspect-[21/9] min-h-[340px] relative bg-slate-50 border border-slate-200 flex items-center justify-center p-6">
+        <div className="w-full aspect-[21/9] min-h-[360px] relative bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center p-6">
           <svg
             viewBox="0 0 1000 420"
             className="w-full h-full"
-            aria-label="TISS Global Operations Network Graphic"
+            aria-label="TISS Global Chapter Network Graphic"
           >
             {/* Latitude and Longitude Graticule lines */}
             <g stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4 4">
@@ -119,16 +143,13 @@ export const GlobalFormationVisual: React.FC = () => {
 
             {/* Connecting Trade Arcs between autonomous chapters */}
             <g stroke="#0284C7" strokeWidth="1.5" strokeOpacity="0.4" strokeDasharray="3 3">
-              {/* BD to UK */}
               <path d="M 640 220 Q 520 120 400 130" fill="none" />
-              {/* BD to China */}
               <path d="M 640 220 Q 690 140 740 160" fill="none" />
-              {/* BD to Hong Kong */}
               <path d="M 640 220 Q 710 200 760 215" fill="none" />
-              {/* BD to Thailand */}
               <path d="M 640 220 Q 670 250 700 260" fill="none" />
-              {/* BD to India */}
               <path d="M 640 220 Q 600 230 570 230" fill="none" />
+              <path d="M 400 130 Q 580 90 740 160" fill="none" stroke="#94A3B8" strokeOpacity="0.3" />
+              <path d="M 740 160 Q 750 185 760 215" fill="none" stroke="#94A3B8" strokeOpacity="0.3" />
             </g>
 
             {/* 1. Independent Chapter: Bangladesh */}
@@ -140,99 +161,102 @@ export const GlobalFormationVisual: React.FC = () => {
                 BANGLADESH
               </text>
               <text x="640" y="275" textAnchor="middle" fill="#334155" fontSize="10" fontWeight="700" fontFamily="Manrope, sans-serif">
-                Independent Chapter (Since 2017)
+                3 Offices · Multi-Sector Hub
               </text>
             </g>
 
             {/* 2. United Kingdom (UK) Node */}
             <g>
-              <circle cx="400" cy="130" r="11" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
+              <circle cx="400" cy="130" r="12" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
               <circle cx="400" cy="130" r="4.5" fill="#0284C7" />
               <text x="400" y="108" textAnchor="middle" fill="#0F172A" fontSize="11" fontWeight="800" fontFamily="Manrope, sans-serif">
                 UNITED KINGDOM (UK)
               </text>
               <text x="400" y="122" textAnchor="middle" fill="#64748B" fontSize="9" fontWeight="600" fontFamily="Manrope, sans-serif">
-                European Trade & Advisory
+                London Office · Trade Advisory
               </text>
             </g>
 
             {/* 3. China Node */}
             <g>
-              <circle cx="740" cy="160" r="11" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
+              <circle cx="740" cy="160" r="12" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
               <circle cx="740" cy="160" r="4.5" fill="#0284C7" />
               <text x="740" y="138" textAnchor="middle" fill="#0F172A" fontSize="11" fontWeight="800" fontFamily="Manrope, sans-serif">
                 CHINA
               </text>
               <text x="740" y="152" textAnchor="middle" fill="#64748B" fontSize="9" fontWeight="600" fontFamily="Manrope, sans-serif">
-                Manufacturing & Supply Chain
+                Sourcing Hub & Freight Office
               </text>
             </g>
 
             {/* 4. Hong Kong Node */}
             <g>
-              <circle cx="760" cy="215" r="11" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
+              <circle cx="760" cy="215" r="12" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
               <circle cx="760" cy="215" r="4.5" fill="#0284C7" />
               <text x="830" y="215" textAnchor="start" fill="#0F172A" fontSize="11" fontWeight="800" fontFamily="Manrope, sans-serif">
                 HONG KONG
               </text>
               <text x="830" y="228" textAnchor="start" fill="#64748B" fontSize="9" fontWeight="600" fontFamily="Manrope, sans-serif">
-                Trade Finance Gateway
+                Chapter Office · Trade Finance
               </text>
             </g>
 
             {/* 5. Thailand Node */}
             <g>
-              <circle cx="700" cy="260" r="11" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
+              <circle cx="700" cy="260" r="12" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
               <circle cx="700" cy="260" r="4.5" fill="#0284C7" />
               <text x="700" y="288" textAnchor="middle" fill="#0F172A" fontSize="11" fontWeight="800" fontFamily="Manrope, sans-serif">
                 THAILAND
               </text>
               <text x="700" y="302" textAnchor="middle" fill="#64748B" fontSize="9" fontWeight="600" fontFamily="Manrope, sans-serif">
-                Southeast Asia Trade Link
+                Bangkok Office · Ambient Media & FMCG
               </text>
             </g>
 
             {/* 6. India Node */}
             <g>
-              <circle cx="570" cy="230" r="11" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
+              <circle cx="570" cy="230" r="12" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.5" className="drop-shadow-sm" />
               <circle cx="570" cy="230" r="4.5" fill="#0284C7" />
               <text x="520" y="234" textAnchor="end" fill="#0F172A" fontSize="11" fontWeight="800" fontFamily="Manrope, sans-serif">
                 INDIA
               </text>
               <text x="520" y="247" textAnchor="end" fill="#64748B" fontSize="9" fontWeight="600" fontFamily="Manrope, sans-serif">
-                Regional Sourcing
+                Regional Commodities Office
               </text>
             </g>
           </svg>
         </div>
 
-        <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-600 gap-4 pt-4 border-t border-slate-200">
+        {/* Legend Ribbon */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-4 border-t border-slate-200">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#0284C7]" />
-            <span className="text-slate-900 font-bold">Independent Operating Chapter: Bangladesh (Since 2017)</span>
+            <span className="text-slate-900 font-bold">Physical Office in Every Country</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#0284C7]" />
-            <span className="text-slate-700 font-bold">
-              Autonomous Chapters: Hong Kong, Thailand, UK, China, India
-            </span>
+            <span className="w-3 h-3 rounded-full bg-emerald-600" />
+            <span className="text-slate-700 font-bold">Autonomous Legal Compliance</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-purple-600" />
+            <span className="text-slate-700 font-bold">Unified Communication Protocol</span>
           </div>
         </div>
       </div>
 
       {/* Corporate Jurisdiction Overview Table */}
-      <div className="bg-white border border-slate-200 p-8 shadow-sm">
-        <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
+      <div className="bg-white border border-slate-200 p-8 shadow-sm rounded-2xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
           <div>
             <h4 className="text-base font-bold text-slate-900">
-              Corporate Presence & Operations Breakdown
+              Autonomous Chapters: Operational Fields & Sovereign Governance
             </h4>
             <p className="text-xs text-slate-600 mt-0.5 font-medium">
-              Verified operational standing across sovereign corporate jurisdictions.
+              Every country chapter has a dedicated office, operates in targeted or varied fields, and obeys local sovereign laws while staying connected through our group system.
             </p>
           </div>
-          <span className="text-xs font-mono px-3 py-1 bg-sky-50 border border-sky-200 text-[#0284C7] font-bold">
-            6 Autonomous Country Chapters
+          <span className="text-xs font-mono px-3.5 py-1.5 bg-sky-50 border border-sky-200 text-[#0284C7] font-bold rounded-lg shrink-0">
+            Offices Active in All 6 Countries
           </span>
         </div>
 
@@ -241,44 +265,66 @@ export const GlobalFormationVisual: React.FC = () => {
             <thead>
               <tr className="border-b border-slate-200 text-slate-500 uppercase tracking-wider font-mono text-[10px] bg-slate-50/70">
                 <th className="py-3 px-4">Jurisdiction</th>
-                <th className="py-3 px-4">Entity Formation</th>
-                <th className="py-3 px-4">Operating Presence</th>
                 <th className="py-3 px-4">Physical Office</th>
-                <th className="py-3 px-4">Scope Description</th>
+                <th className="py-3 px-4">Field Focus & Scope</th>
+                <th className="py-3 px-4">Sovereign Legal Framework</th>
+                <th className="py-3 px-4">Entity Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
               {countries.map((c, idx) => (
                 <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-2">
-                    <span className="font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 border border-slate-200 text-slate-600">
-                      {c.countryCode}
-                    </span>
-                    <span className={c.country === 'Bangladesh' ? 'text-[#0284C7] font-black' : 'text-slate-900'}>
-                      {c.country}
-                    </span>
-                  </td>
-                  <td className="py-3.5 px-4">
-                    <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 border border-emerald-200 text-[10px] font-mono font-bold">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Active
-                    </span>
-                  </td>
-                  <td className="py-3.5 px-4">
-                    <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 border border-emerald-200 text-[10px] font-mono font-bold">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Active
-                    </span>
-                  </td>
-                  <td className="py-3.5 px-4">
-                    {c.office ? (
-                      <span className="inline-flex items-center gap-1 text-sky-700 bg-sky-50 px-2 py-0.5 border border-sky-200 text-[10px] font-mono font-bold">
-                        Registered Office
+                  <td className="py-4 px-4 font-bold text-slate-900 align-top">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 border border-slate-200 text-slate-600 rounded">
+                        {c.countryCode}
                       </span>
-                    ) : (
-                      <span className="text-slate-400 font-mono text-[10px]">Commercial Corridor</span>
-                    )}
+                      <span className={c.country === 'Bangladesh' ? 'text-[#0284C7] font-black' : 'text-slate-900'}>
+                        {c.country}
+                      </span>
+                    </div>
+                    <span className="text-[10px] text-slate-400 font-mono block mt-1">
+                      {c.scopeModel === 'diversified' ? 'Multi-Field Chapter' : 'Specialized Field'}
+                    </span>
                   </td>
-                  <td className="py-3.5 px-4 text-xs text-slate-600 max-w-sm leading-relaxed">
-                    {c.description}
+
+                  <td className="py-4 px-4 align-top">
+                    <div className="flex items-start gap-1.5 text-slate-800 font-semibold">
+                      <Building2 className="w-3.5 h-3.5 text-[#0284C7] shrink-0 mt-0.5" />
+                      <span>{c.officeType}</span>
+                    </div>
+                  </td>
+
+                  <td className="py-4 px-4 max-w-xs align-top">
+                    <div className="flex flex-wrap gap-1 mb-1.5">
+                      {c.specializedFields?.map((f, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] font-mono bg-sky-50 text-[#0284C7] px-2 py-0.5 rounded border border-sky-100 font-semibold"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                      {c.description}
+                    </p>
+                  </td>
+
+                  <td className="py-4 px-4 max-w-xs align-top">
+                    <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200/80 text-[11px] text-slate-600 leading-relaxed">
+                      <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-slate-700 uppercase mb-0.5">
+                        <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                        <span>Autonomous Operation</span>
+                      </div>
+                      {c.legalAutonomyNote}
+                    </div>
+                  </td>
+
+                  <td className="py-4 px-4 align-top">
+                    <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2.5 py-1 border border-emerald-200 text-[10px] font-mono font-bold rounded">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Active Chapter
+                    </span>
                   </td>
                 </tr>
               ))}

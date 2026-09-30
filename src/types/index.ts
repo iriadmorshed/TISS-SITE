@@ -56,10 +56,14 @@ export interface CountryPresence {
   formation: boolean;
   operations: boolean;
   office: boolean;
+  officeType?: string;
+  specializedFields?: string[];
+  scopeModel?: 'specialized' | 'diversified';
   commercialReach: boolean;
   verified: boolean;
   publish: boolean;
   description?: string;
+  legalAutonomyNote?: string;
 }
 
 export interface TimelineMilestone {
@@ -92,4 +96,29 @@ export interface ContactConfig {
   corporateOfficeDetails: OfficeAddressDetails;
   inquiryNotice: string;
   internalVerificationNote: string;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  department: string;
+  departmentCategory:
+    | 'executive'
+    | 'operations'
+    | 'it'
+    | 'coordination'
+    | 'hr'
+    | 'finance'
+    | 'legal'
+    | 'supply-chain';
+  divisionCode: string;
+  bio: string;
+  fullBio: string;
+  focusAreas: string[];
+  achievements: string[];
+  keyLeadershipPillars: string[];
+  email: string;
+  avatarColor: string;
+  isBridgeRole?: boolean;
 }
