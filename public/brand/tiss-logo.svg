@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 68" fill="none">
+  <defs>
+    <!-- Cyan to Royal Blue Gradient -->
+    <linearGradient id="logoBlue" x1="100" y1="80" x2="360" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="35%" stop-color="#0288D1" />
+      <stop offset="85%" stop-color="#0277BD" />
+      <stop offset="100%" stop-color="#01579B" />
+    </linearGradient>
+
+    <!-- Deep Purple to Magenta Spiral Gradient -->
+    <linearGradient id="logoPurple" x1="200" y1="120" x2="380" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BA68C8" />
+      <stop offset="30%" stop-color="#9C27B0" />
+      <stop offset="70%" stop-color="#7B1FA2" />
+      <stop offset="100%" stop-color="#4A148C" />
+    </linearGradient>
+
+    <!-- Warm Orange to Golden Amber Gradient for Arrow Ribbon -->
+    <linearGradient id="logoOrange" x1="90" y1="330" x2="430" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="30%" stop-color="#FF9800" />
+      <stop offset="75%" stop-color="#FFB74D" />
+      <stop offset="100%" stop-color="#FFCA28" />
+    </linearGradient>
+
+    <filter id="logoShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="3" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.22" />
+    </filter>
+  </defs>
+
+  <!-- Crisp Official Emblem Scaled with High Fidelity -->
+  <g transform="translate(6, 4) scale(0.12)" filter="url(#logoShadow)">
+    <!-- 1. Purple/Magenta Ribbon Sphere Base & Inner Vortex -->
+    <path
+      d="M190 195 C 240 135, 335 125, 360 215 C 380 280, 355 350, 275 365 C 205 375, 145 325, 175 270 C 195 235, 260 230, 280 200 C 295 175, 270 155, 240 160 C 210 165, 195 180, 190 195 Z"
+      fill="url(#logoPurple)"
+    />
+
+    <!-- Purple Bottom Curve Depth Layer -->
+    <path
+      d="M165 295 C 190 355, 270 375, 335 345 C 375 320, 385 270, 365 220 C 370 270, 345 330, 290 355 C 235 370, 180 340, 165 295 Z"
+      fill="#4A148C"
+      opacity="0.4"
+    />
+
+    <!-- 2. Cyan / Azure Blue Sweeping Ribbon -->
+    <path
+      d="M285 88 C 190 85, 115 150, 102 245 C 95 305, 130 335, 165 325 C 120 285, 125 185, 195 130 C 255 85, 325 110, 345 150 C 365 190, 340 240, 280 265 C 215 290, 155 270, 135 240 C 150 280, 220 300, 290 275 C 365 245, 385 175, 355 125 C 330 95, 305 88, 285 88 Z"
+      fill="url(#logoBlue)"
+    />
+
+    <!-- 3. Ascending Golden-Orange Curved Ribbon Shaft -->
+    <path
+      d="M 92 282 C 86 312, 138 340, 202 322 C 266 304, 342 258, 382 225 L 366 205 C 330 235, 258 280, 198 296 C 145 310, 108 292, 102 272 Z"
+      fill="url(#logoOrange)"
+    />
+
+    <!-- 4. Ascending Golden Arrow Head & Terminal Beam -->
+    <path
+      d="M 102 272 C 155 335, 295 285, 376 220 L 362 195 L 438 168 L 416 244 L 392 220 C 322 282, 178 332, 92 282 Z"
+      fill="url(#logoOrange)"
+    />
+  </g>
+
+  <!-- Typography: TISS CO. LTD. -->
+  <text x="74" y="38" font-family="'Manrope', -apple-system, sans-serif" font-size="22" font-weight="900" letter-spacing="0.08em" fill="#0F172A">
+    TISS <tspan font-weight="800" font-size="15" fill="#0284C7">CO. LTD.</tspan>
+  </text>
+  <text x="75" y="53" font-family="'Manrope', -apple-system, sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.14em" fill="#64748B">
+    BUILDING BUSINESSES · CONNECTING OPPORTUNITIES
+  </text>
+</svg>
