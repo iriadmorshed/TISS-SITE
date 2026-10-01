@@ -3,9 +3,13 @@ import { Globe2, ShieldCheck, CheckCircle2, Building2, Layers, Cpu, ArrowRight }
 import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { GlobalFormationVisual } from '../components/global/GlobalFormationVisual';
+import { useCMS } from '../context/CMSContext';
 import { companyData } from '../data/company';
 
 export const GlobalPresencePage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const narratives = cmsData.narratives;
+
   return (
     <>
       <SEO
@@ -28,18 +32,16 @@ export const GlobalPresencePage: React.FC = () => {
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <Globe2 className="w-4 h-4 text-[#0284C7]" />
-                <span>Autonomous Jurisdictional Chapters</span>
+                <span>{narratives.globalBadge || 'Autonomous Jurisdictional Chapters'}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-                Autonomous Chapters. <br />
-                Dedicated Offices Across 6 Countries.
+                {narratives.globalHeadline || 'Autonomous Chapters. Dedicated Offices Across 6 Countries.'}
               </h1>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-                TISS Corporation operates through dedicated physical offices across six countries:
-                <span className="font-bold text-slate-900"> Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India</span>.
-                Each territory functions as an autonomous chapter targeting specialized or varied commercial fields, governed strictly by host country laws while synchronized through shared group communication systems.
+                {narratives.globalSubheadline ||
+                  'TISS Corporation operates through dedicated physical offices across six countries: Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India. Each territory functions as an autonomous chapter targeting specialized or varied commercial fields.'}
               </p>
 
               {/* 3 Core Architecture Pillars */}

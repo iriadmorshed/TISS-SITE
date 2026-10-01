@@ -3,10 +3,12 @@ import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { BusinessCard } from '../components/businesses/BusinessCard';
 import { BusinessDirectoryFilter } from '../components/businesses/BusinessDirectoryFilter';
-import { businesses } from '../data/businesses';
+import { useCMS } from '../context/CMSContext';
 import { BusinessStatus } from '../types';
 
 export const BusinessesPage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const businesses = cmsData.businesses;
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState<BusinessStatus | 'all'>('all');
@@ -71,14 +73,15 @@ export const BusinessesPage: React.FC = () => {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <span className="w-5 h-[2px] bg-[#0284C7]" />
-                <span>Group Directory</span>
+                <span>{cmsData.narratives.servicesBadge || 'Group Directory'}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
-                Ten Specialized Businesses. One Connected Group.
+                {cmsData.narratives.servicesHeadline ||
+                  'Ten Specialized Businesses. One Connected Group.'}
               </h1>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-                TISS Corporation brings together specialized enterprises operating across diverse commercial
-                disciplines. Browse active entities, inspect specialized capabilities, and explore portfolio operations.
+                {cmsData.narratives.servicesSubheadline ||
+                  'TISS Corporation brings together specialized enterprises operating across diverse commercial disciplines. Browse active entities, inspect specialized capabilities, and explore portfolio operations.'}
               </p>
             </div>
           </div>

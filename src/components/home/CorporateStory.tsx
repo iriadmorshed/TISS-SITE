@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe, Award, Shield, CheckCircle2 } from 'lucide-react';
-import { companyData } from '../../data/company';
+import { ArrowRight, Globe, Award, Shield } from 'lucide-react';
+import { useCMS } from '../../context/CMSContext';
 
 export const CorporateStory: React.FC = () => {
+  const { cmsData } = useCMS();
+  const hero = cmsData.hero;
+
   return (
     <section className="bg-slate-50/70 py-24 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,33 +14,29 @@ export const CorporateStory: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
               <span className="w-5 h-[2px] bg-[#0284C7]" />
-              <span>Corporate Heritage</span>
+              <span>{hero.heritageBadge || 'Corporate Heritage'}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              Built on Experience. <br />
-              Oriented Toward Opportunity.
+              {hero.heritageHeadline || 'Built on Experience. Oriented Toward Opportunity.'}
             </h2>
 
             <p className="text-base text-slate-700 leading-relaxed font-medium">
-              TISS Co. Ltd. (TISS Corporation) has a company formation background across five countries
-              and has been actively conducting business in Bangladesh since 2017. Our portfolio reflects a
-              disciplined approach to nurturing specialized enterprises across multiple key sectors.
+              {hero.heritageParagraph1 ||
+                'TISS Co. Ltd. (TISS Corporation) has a company formation background across five countries and has been actively conducting business in Bangladesh since 2017. Our portfolio reflects a disciplined approach to nurturing specialized enterprises across multiple key sectors.'}
             </p>
 
             <p className="text-sm text-slate-600 leading-relaxed font-medium">
-              Rather than centralizing all activities under a rigid monolithic framework, the group
-              empowers autonomous operational units. Each business possesses dedicated sector
-              capabilities, modern infrastructure, and agile leadership, backed by the parent company’s
-              corporate governance and long-term capital stability.
+              {hero.heritageParagraph2 ||
+                'Rather than centralizing all activities under a rigid monolithic framework, the group empowers autonomous operational units. Each business possesses dedicated sector capabilities, modern infrastructure, and agile leadership, backed by the parent company’s corporate governance and long-term capital stability.'}
             </p>
 
             <div className="pt-2">
               <Link
-                to="/about"
+                to={hero.heritageCtaLink || '/about'}
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white bg-[#0284C7] hover:bg-[#0369A1] px-6 py-3.5 transition-colors shadow-sm"
               >
-                <span>Read Full Corporate Profile</span>
+                <span>{hero.heritageCtaLabel || 'Read Full Corporate Profile'}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -50,7 +49,7 @@ export const CorporateStory: React.FC = () => {
                   Corporate Architecture
                 </span>
                 <h3 className="text-xl font-bold text-slate-900">
-                  {companyData.secondaryExpression}
+                  {hero.heritageArchTitle || 'Enterprise Resilience Through Autonomous Domain Leadership'}
                 </h3>
               </div>
 
@@ -60,10 +59,12 @@ export const CorporateStory: React.FC = () => {
                     <Globe className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block mb-0.5 font-bold">International Outlook</strong>
+                    <strong className="text-slate-900 block mb-0.5 font-bold">
+                      {hero.heritagePoint1Title || 'International Outlook'}
+                    </strong>
                     <span className="leading-relaxed">
-                      Company formation background across 5 jurisdictions provides wide perspective on
-                      cross-border trade, commercial partnerships, and compliance standards.
+                      {hero.heritagePoint1Text ||
+                        'Company formation background across 5 jurisdictions provides wide perspective on cross-border trade, commercial partnerships, and compliance standards.'}
                     </span>
                   </div>
                 </div>
@@ -73,10 +74,12 @@ export const CorporateStory: React.FC = () => {
                     <Award className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block mb-0.5 font-bold">Dedicated Sector Specialization</strong>
+                    <strong className="text-slate-900 block mb-0.5 font-bold">
+                      {hero.heritagePoint2Title || 'Dedicated Sector Specialization'}
+                    </strong>
                     <span className="leading-relaxed">
-                      10 specialized entities with dedicated operating expertise, from enterprise software
-                      and nationwide logistics to ambient advertising and modern retail.
+                      {hero.heritagePoint2Text ||
+                        '10 specialized entities with dedicated operating expertise, from enterprise software and nationwide logistics to ambient advertising and modern retail.'}
                     </span>
                   </div>
                 </div>
@@ -86,10 +89,12 @@ export const CorporateStory: React.FC = () => {
                     <Shield className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900 block mb-0.5 font-bold">Institutional Reliability</strong>
+                    <strong className="text-slate-900 block mb-0.5 font-bold">
+                      {hero.heritagePoint3Title || 'Institutional Reliability'}
+                    </strong>
                     <span className="leading-relaxed">
-                      Built around operational integrity, transparent business practices, and enduring
-                      commercial relationships that stand the test of time.
+                      {hero.heritagePoint3Text ||
+                        'Conducting business in Bangladesh since 2017 with physical offices, a nationwide staff, and active corporate compliance.'}
                     </span>
                   </div>
                 </div>

@@ -1,10 +1,15 @@
 import React from 'react';
+import { useCMS } from '../../context/CMSContext';
 
 interface TissLogoProps {
   className?: string;
   showSubtitle?: boolean;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'light' | 'dark';
+  customLogoUrl?: string;
+  logoName?: string;
+  logoSuffix?: string;
+  tagline?: string;
 }
 
 export const TissLogo: React.FC<TissLogoProps> = ({
@@ -12,7 +17,18 @@ export const TissLogo: React.FC<TissLogoProps> = ({
   showSubtitle = true,
   size = 'md',
   variant = 'light',
+  customLogoUrl,
+  logoName,
+  logoSuffix,
+  tagline,
 }) => {
+  const { cmsData } = useCMS();
+  const identity = cmsData.siteIdentity;
+  const activeLogoName = logoName || identity?.logoName || 'TISS';
+  const activeLogoSuffix = logoSuffix || identity?.logoSuffix || 'CO. LTD.';
+  const activeTagline = tagline || identity?.tagline || 'Building Businesses · Connecting Opportunities';
+  const activeLogoUrl = customLogoUrl || identity?.customLogoUrl || cmsData.header?.customLogoUrl;
+
   // Dimensions tailored for crisp rendering and visibility
   const iconConfig = {
     sm: { box: 'w-9 h-9', pad: 'p-1', svgW: 30, svgH: 30, textTiss: 'text-lg', textCo: 'text-xs', subText: 'text-[7.5px]' },
@@ -23,6 +39,37 @@ export const TissLogo: React.FC<TissLogoProps> = ({
   const textColor = variant === 'dark' ? 'text-white' : 'text-[#0F172A]';
   const coColor = variant === 'dark' ? 'text-[#38BDF8]' : 'text-[#0284C7]';
   const subtitleColor = variant === 'dark' ? 'text-slate-400' : 'text-slate-500';
+
+  if (activeLogoUrl) {
+    return (
+      <div className={`inline-flex items-center gap-3 select-none ${className}`}>
+        <div className={`relative shrink-0 rounded-xl bg-white shadow-xs border border-slate-200 p-1 flex items-center justify-center ${iconConfig.box}`}>
+          <img
+            src={activeLogoUrl}
+            alt={activeLogoName}
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-baseline gap-1.5 leading-none">
+            <span className={`font-black tracking-[0.07em] ${textColor} ${iconConfig.textTiss}`}>
+              {activeLogoName}
+            </span>
+            {activeLogoSuffix && (
+              <span className={`font-extrabold tracking-[0.14em] ${coColor} ${iconConfig.textCo}`}>
+                {activeLogoSuffix}
+              </span>
+            )}
+          </div>
+          {showSubtitle && (
+            <span className={`font-bold tracking-[0.14em] uppercase mt-1 ${subtitleColor} ${iconConfig.subText}`}>
+              {activeTagline}
+            </span>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
@@ -114,18 +161,20 @@ export const TissLogo: React.FC<TissLogoProps> = ({
           <span
             className={`font-black tracking-[0.07em] transition-colors group-hover:text-[#0284C7] ${textColor} ${iconConfig.textTiss}`}
           >
-            TISS
+            {activeLogoName}
           </span>
-          <span className={`font-extrabold tracking-[0.14em] ${coColor} ${iconConfig.textCo}`}>
-            CO. LTD.
-          </span>
+          {activeLogoSuffix && (
+            <span className={`font-extrabold tracking-[0.14em] ${coColor} ${iconConfig.textCo}`}>
+              {activeLogoSuffix}
+            </span>
+          )}
         </div>
 
         {showSubtitle && (
           <span
             className={`font-bold tracking-[0.14em] uppercase mt-1 ${subtitleColor} ${iconConfig.subText}`}
           >
-            Building Businesses · Connecting Opportunities
+            {activeTagline}
           </span>
         )}
       </div>

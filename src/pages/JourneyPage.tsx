@@ -4,8 +4,12 @@ import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { timelineMilestones } from '../data/timeline';
+import { useCMS } from '../context/CMSContext';
 
 export const JourneyPage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const narratives = cmsData.narratives;
+
   return (
     <>
       <SEO
@@ -28,17 +32,16 @@ export const JourneyPage: React.FC = () => {
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <Calendar className="w-4 h-4 text-[#0284C7]" />
-                <span>Institutional Timeline</span>
+                <span>{narratives.journeyBadge || 'Institutional Timeline'}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-                Our Corporate Journey
+                {narratives.journeyHeadline || 'Our Corporate Journey'}
               </h1>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-                TISS Corporation has been actively conducting commercial activities in Bangladesh since 2017.
-                Our evolving portfolio reflects a disciplined, step-by-step approach to establishing specialized
-                businesses across critical enterprise and consumer sectors.
+                {narratives.journeySubheadline ||
+                  'TISS Corporation has been actively conducting commercial activities in Bangladesh since 2017. Our evolving portfolio reflects a disciplined, step-by-step approach to establishing specialized businesses across critical enterprise and consumer sectors.'}
               </p>
             </div>
           </div>

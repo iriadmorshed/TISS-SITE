@@ -4,9 +4,13 @@ import { ArrowRight, Globe2, Layers, ShieldCheck, Target, Building2 } from 'luci
 import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { CorporateEcosystemDiagram } from '../components/common/CorporateEcosystemDiagram';
+import { useCMS } from '../context/CMSContext';
 import { companyData } from '../data/company';
 
 export const AboutPage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const narratives = cmsData.narratives;
+
   return (
     <>
       <SEO
@@ -29,18 +33,16 @@ export const AboutPage: React.FC = () => {
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <span className="w-5 h-[2px] bg-[#0284C7]" />
-                <span>Corporate Profile</span>
+                <span>{narratives.aboutBadge || 'Corporate Profile'}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-                Building Businesses. <br />
-                Connecting Opportunities.
+                {narratives.aboutHeadline || 'Building Businesses. Connecting Opportunities.'}
               </h1>
 
               <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                TISS Co. Ltd. (TISS Corporation) is a diversified enterprise group bringing together
-                specialized businesses across technology, customer communication, logistics, advertising,
-                advisory, travel, retail, and international trade.
+                {narratives.aboutSubheadline ||
+                  'TISS Co. Ltd. (TISS Corporation) is a diversified enterprise group bringing together specialized businesses across technology, customer communication, logistics, advertising, advisory, travel, retail, and international trade.'}
               </p>
             </div>
           </div>
@@ -49,7 +51,7 @@ export const AboutPage: React.FC = () => {
         {/* TISS at a Glance */}
         <section className="py-20 bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="p-8 bg-white border border-slate-200 shadow-sm">
                 <span className="text-[11px] font-mono uppercase text-[#0284C7] font-bold block mb-2">
                   Operating Chapter
@@ -79,6 +81,47 @@ export const AboutPage: React.FC = () => {
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   Autonomous businesses tailored to their respective domains, from digital software
                   infrastructure to ambient urban advertising and sustainable jute export.
+                </p>
+              </div>
+            </div>
+
+            {/* Dynamic Mission & Vision Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-8 bg-white border border-slate-200 shadow-sm hover:border-[#0284C7] transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 bg-sky-50 text-[#0284C7] rounded-lg">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#0284C7] font-bold block">
+                      Guiding Compass
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900">Corporate Mission</h3>
+                  </div>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  {narratives.aboutMission ||
+                    narratives.missionStatement ||
+                    'Empower specialized operating businesses through strategic coordination, disciplined capital allocation, and high-trust commercial partnerships across regional and global markets.'}
+                </p>
+              </div>
+
+              <div className="p-8 bg-white border border-slate-200 shadow-sm hover:border-purple-600 transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 bg-purple-50 text-purple-600 rounded-lg">
+                    <Globe2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-purple-600 font-bold block">
+                      Future Horizon
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900">Corporate Vision</h3>
+                  </div>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  {narratives.aboutVision ||
+                    narratives.visionStatement ||
+                    'Establish an enduring, multi-industry enterprise network recognized for operational integrity, institutional capability, and impactful cross-border business execution.'}
                 </p>
               </div>
             </div>

@@ -120,5 +120,13 @@ export interface TeamMember {
   keyLeadershipPillars: string[];
   email: string;
   avatarColor: string;
+  imageUrl?: string;
+  socialLinks?: {
+    linkedin?: string;
+    twitter?: string;
+    email?: string;
+    website?: string;
+    phone?: string;
+  };
   isBridgeRole?: boolean;
 }

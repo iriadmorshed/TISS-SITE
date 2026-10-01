@@ -1,12 +1,36 @@
 import React from 'react';
-import { companyData } from '../../data/company';
-import { Building2, Globe2, Calendar } from 'lucide-react';
+import { useCMS } from '../../context/CMSContext';
+import { Building2, Globe2, Users, Briefcase } from 'lucide-react';
 
 export const CorporateSnapshot: React.FC = () => {
-  const statIcons = [
-    <Building2 className="w-6 h-6 text-[#0284C7]" />,
-    <Globe2 className="w-6 h-6 text-[#0284C7]" />,
-    <Calendar className="w-6 h-6 text-[#D97706]" />,
+  const { cmsData } = useCMS();
+  const { hero } = cmsData;
+
+  const stats = [
+    {
+      value: hero.metric1Value || '150+',
+      label: hero.metric1Label || 'Personnel in BD',
+      subtext: 'Across engineering, CX, retail, and coordination squads',
+      icon: <Users className="w-6 h-6 text-[#0284C7]" />,
+    },
+    {
+      value: hero.metric2Value || '3',
+      label: hero.metric2Label || 'Offices in Dhaka',
+      subtext: 'Corporate, Registered, and delivery facilities',
+      icon: <Building2 className="w-6 h-6 text-[#0284C7]" />,
+    },
+    {
+      value: hero.metric3Value || '10',
+      label: hero.metric3Label || 'Portfolio Businesses',
+      subtext: 'Operating across technology, BPO, logistics, and retail',
+      icon: <Briefcase className="w-6 h-6 text-[#0284C7]" />,
+    },
+    {
+      value: hero.metric4Value || '6',
+      label: hero.metric4Label || 'Countries Present',
+      subtext: 'Autonomous chapters with physical offices and local compliance',
+      icon: <Globe2 className="w-6 h-6 text-[#D97706]" />,
+    },
   ];
 
   return (
@@ -15,21 +39,21 @@ export const CorporateSnapshot: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-slate-200">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7] mb-2">
-              Corporate Scale & Scope
+              {hero.scaleBadge || 'Corporate Scale & Scope'}
             </p>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              An Ecosystem of Specialized Businesses
+              {hero.scaleHeadline || 'An Ecosystem of Specialized Businesses'}
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed font-medium">
-            TISS Corporation unites diversified capabilities under dedicated operating entities,
-            fostering domain leadership, client satisfaction, and continuous commercial expansion.
+            {hero.scaleSubheadline ||
+              'TISS Corporation unites diversified capabilities under dedicated operating entities, fostering domain leadership, client satisfaction, and continuous commercial expansion.'}
           </p>
         </div>
 
-        {/* Editorial Animated Data Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
-          {companyData.stats.map((stat, idx) => (
+        {/* Dynamic Metric Counters */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-10">
+          {stats.map((stat, idx) => (
             <div
               key={idx}
               className="p-8 bg-slate-50/70 border border-slate-200 relative group hover:border-[#0284C7] hover:bg-white hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
@@ -40,7 +64,7 @@ export const CorporateSnapshot: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-2.5 bg-white border border-slate-200/80 shadow-2xs group-hover:scale-110 transition-transform">
-                    {statIcons[idx] || <Building2 className="w-6 h-6 text-[#0284C7]" />}
+                    {stat.icon}
                   </div>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
                     METRIC 0{idx + 1}
@@ -48,21 +72,17 @@ export const CorporateSnapshot: React.FC = () => {
                 </div>
 
                 <div className="flex items-baseline gap-2">
-                  {stat.prefix && (
-                    <span className="text-sm font-bold text-slate-500 uppercase tracking-wider font-mono">
-                      {stat.prefix}
-                    </span>
-                  )}
                   <span className="text-4xl sm:text-5xl font-black tracking-tight text-[#0F172A] group-hover:text-[#0284C7] font-mono tabular-nums transition-colors">
                     {stat.value}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 mt-3 tracking-normal">
+                <p className="text-sm font-bold text-slate-900 mt-2">
                   {stat.label}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed font-medium">
-                  {stat.sublabel}
+                </p>
+
+                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                  {stat.subtext}
                 </p>
               </div>
             </div>

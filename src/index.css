@@ -46,7 +46,7 @@
   outline-offset: 2px;
 }
 
-/* Smooth Infinite Ticker Marquee Animation */
+/* Smooth Infinite Ticker Marquee Animation with Dynamic Speed */
 @keyframes ticker {
   0% {
     transform: translate3d(0, 0, 0);
@@ -59,11 +59,16 @@
 .animate-ticker {
   display: flex;
   width: max-content;
-  animation: ticker 125s linear infinite;
+  animation: ticker var(--ticker-duration, 45s) linear infinite;
 }
 
+html[data-ticker-pause="true"] .animate-ticker:hover,
 .animate-ticker:hover {
   animation-play-state: paused;
+}
+
+html[data-ticker-pause="false"] .animate-ticker:hover {
+  animation-play-state: running !important;
 }
 
 @keyframes floatSlow {
@@ -92,4 +97,27 @@
 
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Global Animation Control Classes & Attributes */
+html.no-animations *,
+html[data-animations="false"] * {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-entrance-fades="false"] [class*="fade-in"],
+html[data-entrance-fades="false"] .animate-in {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+html[data-hero-glow="false"] .animate-pulse-glow {
+  animation: none !important;
+  opacity: 0.25 !important;
+}
+
+html[data-floating="false"] .animate-float {
+  animation: none !important;
+  transform: none !important;
 }

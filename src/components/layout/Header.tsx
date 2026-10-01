@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
-import { businesses } from '../../data/businesses';
+import { useCMS } from '../../context/CMSContext';
 import { TickerBar } from './TickerBar';
 import { TissLogo } from '../common/TissLogo';
 
 export const Header: React.FC = () => {
+  const { cmsData } = useCMS();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [businessesDropdownOpen, setBusinessesDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -62,14 +63,21 @@ export const Header: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
+  const customNavLinks = (cmsData.customPages || [])
+    .filter((p) => p.published && p.showInHeaderNav)
+    .map((p) => ({
+      id: p.id,
+      label: p.title,
+      path: `/pages/${p.slug}`,
+      enabled: true,
+      hasDropdown: false,
+    }));
+
   const navLinks = [
-    { label: 'About', path: '/about' },
-    { label: 'Businesses', path: '/businesses', hasDropdown: true },
-    { label: 'Services', path: '/services' },
-    { label: 'Global Presence', path: '/global-presence' },
-    { label: 'Journey', path: '/journey' },
-    { label: 'Leadership', path: '/team' },
+    ...cmsData.header.navLinks.filter((item) => item.enabled),
+    ...customNavLinks,
   ];
+  const businesses = cmsData.businesses;
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-200">
@@ -92,7 +100,7 @@ export const Header: React.FC = () => {
               className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284C7]"
               aria-label="TISS Co. Ltd. Home"
             >
-              <TissLogo size="md" />
+              <TissLogo size="md" customLogoUrl={cmsData.header.customLogoUrl} />
             </Link>
 
           {/* ZONE 2: Clean Text Navigation Links (Desktop) */}
@@ -190,20 +198,20 @@ export const Header: React.FC = () => {
           {/* ZONE 3: Primary Action Controls */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              to="/contact"
+              to={cmsData.header.ctaLink || '/contact'}
               className="inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0F172A] hover:bg-[#0284C7] transition-colors duration-200 shadow-sm"
             >
-              Contact TISS
+              {cmsData.header.ctaText || 'Contact Us'}
             </Link>
           </div>
 
           {/* Mobile Menu Trigger */}
           <div className="flex items-center lg:hidden gap-3">
             <Link
-              to="/contact"
+              to={cmsData.header.ctaLink || '/contact'}
               className="px-3.5 py-1.5 text-xs font-bold text-white bg-[#0F172A] hover:bg-[#0284C7] transition-colors"
             >
-              Contact
+              {cmsData.header.ctaText || 'Contact Us'}
             </Link>
             <button
               type="button"
@@ -273,10 +281,10 @@ export const Header: React.FC = () => {
 
           <div className="p-6 border-t border-slate-200 bg-slate-50">
             <Link
-              to="/contact"
+              to={cmsData.header.ctaLink || '/contact'}
               className="w-full flex items-center justify-center py-3 text-sm font-bold tracking-wider uppercase text-white bg-[#0284C7] hover:bg-[#0369A1] transition-colors"
             >
-              Start a Conversation
+              {cmsData.header.ctaText || 'Contact Us'}
             </Link>
           </div>
         </div>

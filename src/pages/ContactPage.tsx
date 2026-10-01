@@ -1,11 +1,15 @@
 import React from 'react';
-import { Mail, MapPin, Building, ShieldCheck, Globe } from 'lucide-react';
+import { Mail, MapPin, Building, ShieldCheck, Globe, Clock } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { ContactForm } from '../components/contact/ContactForm';
 import { contactConfig } from '../data/contact';
+import { useCMS } from '../context/CMSContext';
 
 export const ContactPage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const narratives = cmsData.narratives;
+
   return (
     <>
       <SEO
@@ -28,14 +32,14 @@ export const ContactPage: React.FC = () => {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
                 <span className="w-5 h-[2px] bg-[#0284C7]" />
-                <span>Corporate Dialogue</span>
+                <span>{narratives.contactBadge || 'Corporate Dialogue'}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
-                Start a Conversation with TISS.
+                {narratives.contactHeadline || 'Start a Conversation with TISS.'}
               </h1>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
-                Connect with TISS Corporation to discuss business opportunities, enterprise service
-                requirements, strategic partnerships, and commercial collaboration across our operating businesses.
+                {narratives.contactSubheadline ||
+                  'Connect with TISS Corporation to discuss business opportunities, enterprise service requirements, strategic partnerships, and commercial collaboration across our operating businesses.'}
               </p>
             </div>
           </div>
@@ -55,7 +59,7 @@ export const ContactPage: React.FC = () => {
                     Direct Corporate Coordination
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    {contactConfig.inquiryNotice}
+                    {narratives.contactResponseNotice || contactConfig.inquiryNotice}
                   </p>
                 </div>
 

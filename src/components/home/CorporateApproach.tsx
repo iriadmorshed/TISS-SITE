@@ -1,19 +1,24 @@
 import React from 'react';
+import { useCMS } from '../../context/CMSContext';
 import { companyData } from '../../data/company';
 
 export const CorporateApproach: React.FC = () => {
+  const { cmsData } = useCMS();
+  const hero = cmsData.hero;
+
   return (
     <section className="bg-slate-50/70 py-24 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-14">
           <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7] mb-2.5">
-            Operating Mindset
+            {hero.approachBadge || 'Operating Mindset'}
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Our Corporate Approach
+            {hero.approachHeadline || 'Our Corporate Approach'}
           </h2>
           <p className="text-sm text-slate-600 mt-2 leading-relaxed font-medium">
-            How TISS Corporation approaches long-term value creation, operational stability, and commercial excellence.
+            {hero.approachSubheadline ||
+              'How TISS Corporation approaches long-term value creation, operational stability, and commercial excellence.'}
           </p>
         </div>
 

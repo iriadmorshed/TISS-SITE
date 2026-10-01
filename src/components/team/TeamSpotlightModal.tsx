@@ -1,5 +1,20 @@
 import React, { useEffect } from 'react';
-import { X, Award, CheckCircle2, Briefcase, Mail, ChevronLeft, ChevronRight, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
+import {
+  X,
+  Award,
+  CheckCircle2,
+  Briefcase,
+  Mail,
+  ChevronLeft,
+  ChevronRight,
+  ShieldCheck,
+  Sparkles,
+  Building2,
+  Linkedin,
+  Twitter,
+  Globe,
+  ExternalLink,
+} from 'lucide-react';
 import { TeamMember } from '../../types';
 
 interface TeamSpotlightModalProps {
@@ -112,13 +127,21 @@ export const TeamSpotlightModal: React.FC<TeamSpotlightModalProps> = ({
         <div className="p-6 sm:p-8 space-y-8">
           {/* Identity Block */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div
-              className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${member.avatarColor} shadow-md flex items-center justify-center font-black text-2xl tracking-wider shrink-0 border border-white/20`}
-            >
-              {initials}
-            </div>
+            {member.imageUrl ? (
+              <img
+                src={member.imageUrl}
+                alt={member.name}
+                className="w-20 h-20 rounded-2xl object-cover shadow-md shrink-0 border border-slate-200"
+              />
+            ) : (
+              <div
+                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${member.avatarColor} shadow-md flex items-center justify-center font-black text-2xl tracking-wider shrink-0 border border-white/20`}
+              >
+                {initials}
+              </div>
+            )}
 
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-white bg-[#0284C7] px-2.5 py-0.5 rounded-full">
                   {member.role}
@@ -141,6 +164,54 @@ export const TeamSpotlightModal: React.FC<TeamSpotlightModalProps> = ({
                 <Briefcase className="w-3.5 h-3.5 text-slate-400" />
                 <span>{member.department}</span>
               </p>
+
+              {/* Social Media Links */}
+              {member.socialLinks && (
+                <div className="flex items-center gap-2 pt-1">
+                  {member.socialLinks.linkedin && (
+                    <a
+                      href={member.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 bg-slate-100 hover:bg-[#0284C7] text-slate-600 hover:text-white rounded-lg transition-colors"
+                      title="LinkedIn Profile"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {member.socialLinks.twitter && (
+                    <a
+                      href={member.socialLinks.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 bg-slate-100 hover:bg-[#0284C7] text-slate-600 hover:text-white rounded-lg transition-colors"
+                      title="Twitter / X"
+                    >
+                      <Twitter className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {member.socialLinks.website && (
+                    <a
+                      href={member.socialLinks.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 bg-slate-100 hover:bg-[#0284C7] text-slate-600 hover:text-white rounded-lg transition-colors"
+                      title="Personal / Portfolio Website"
+                    >
+                      <Globe className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {member.socialLinks.email && (
+                    <a
+                      href={`mailto:${member.socialLinks.email}`}
+                      className="p-1.5 bg-slate-100 hover:bg-[#0284C7] text-slate-600 hover:text-white rounded-lg transition-colors"
+                      title="Send Direct Email"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

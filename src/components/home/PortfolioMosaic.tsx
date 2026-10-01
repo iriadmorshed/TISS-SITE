@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { businesses } from '../../data/businesses';
+import { useCMS } from '../../context/CMSContext';
 import { BusinessStatusBadge } from '../common/BusinessStatusBadge';
 
 export const PortfolioMosaic: React.FC = () => {
+  const { cmsData } = useCMS();
+  const businesses = cmsData.businesses;
+  const hero = cmsData.hero;
+
   const featureBusinesses = businesses.slice(0, 2);
   const mediumBusinesses = businesses.slice(2, 6);
   const compactBusinesses = businesses.slice(6, 10);
@@ -16,17 +20,17 @@ export const PortfolioMosaic: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7] mb-2.5">
               <span className="w-5 h-[2px] bg-[#0284C7]" />
-              <span>Multi-Sector Capabilities</span>
+              <span>{hero.portfolioBadge || 'Multi-Sector Capabilities'}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              The Portfolio Mosaic
+              {hero.portfolioHeadline || 'The Portfolio Mosaic'}
             </h2>
           </div>
           <Link
-            to="/businesses"
+            to={hero.portfolioCtaLink || '/businesses'}
             className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0284C7] hover:text-[#0369A1] transition-colors"
           >
-            <span>Complete Business Directory</span>
+            <span>{hero.portfolioCtaLabel || 'Complete Business Directory'}</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

@@ -5,9 +5,11 @@ import { SEO } from '../components/common/SEO';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { BusinessStatusBadge } from '../components/common/BusinessStatusBadge';
 import { VerificationNotice } from '../components/common/VerificationNotice';
-import { businesses } from '../data/businesses';
+import { useCMS } from '../context/CMSContext';
 
 export const BusinessDetailPage: React.FC = () => {
+  const { cmsData } = useCMS();
+  const businesses = cmsData.businesses;
   const { slug } = useParams<{ slug: string }>();
   const business = businesses.find((b) => b.slug === slug);
 

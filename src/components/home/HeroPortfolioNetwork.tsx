@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Compass, Sparkles, Building2, ChevronRight } from 'lucide-react';
-import { businesses } from '../../data/businesses';
+import { useCMS } from '../../context/CMSContext';
 
 export const HeroPortfolioNetwork: React.FC = () => {
+  const { cmsData } = useCMS();
+  const businesses = cmsData.businesses;
+  const hero = cmsData.hero;
   const [activeNodeIndex, setActiveNodeIndex] = useState<number | null>(null);
   const [pulsePhase, setPulsePhase] = useState(0);
 
   // Gentle pulse animation cycle
   useEffect(() => {
+    if (hero.animationsEnabled === false) return;
+    const intervalMs =
+      hero.animationSpeed === 'slow' ? 90 : hero.animationSpeed === 'fast' ? 25 : 50;
     const timer = setInterval(() => {
       setPulsePhase((prev) => (prev + 1) % 100);
-    }, 50);
+    }, intervalMs);
     return () => clearInterval(timer);
-  }, []);
+  }, [hero.animationsEnabled, hero.animationSpeed]);
 
   const centerX = 300;
   const centerY = 300;
@@ -42,8 +48,12 @@ export const HeroPortfolioNetwork: React.FC = () => {
       />
 
       {/* Dual Animated Ambient Light Glows */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-200/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none animate-float" />
+      {hero.animationsEnabled !== false && (
+        <>
+          <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-200/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+          <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none animate-float" />
+        </>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
@@ -56,39 +66,37 @@ export const HeroPortfolioNetwork: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0284C7]"></span>
               </span>
               <span className="tracking-wider uppercase font-mono">
-                TISS Corporation · 10 Specialized Enterprises
+                {hero.badgeText}
               </span>
             </div>
 
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0F172A] tracking-tight leading-[1.08] [text-wrap:balance]">
-                Building Businesses. <br />
+                {hero.headlineLine1} <br />
                 <span className="bg-gradient-to-r from-[#0284C7] via-[#0369A1] to-[#0A2540] bg-clip-text text-transparent">
-                  Connecting Opportunities.
+                  {hero.headlineLine2}
                 </span>
               </h1>
             </div>
 
             <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
-              TISS Co. Ltd. (TISS Corporation) is a diversified enterprise group bringing together
-              autonomous specialized businesses across technology, customer communication, logistics,
-              advertising, advisory, travel, modern retail, and international trade.
+              {hero.subheadline}
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Link
-                to="/businesses"
+                to={hero.primaryCtaLink || '/businesses'}
                 className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 text-xs font-bold uppercase tracking-wider text-white bg-[#0284C7] hover:bg-[#0369A1] transition-all shadow-md shadow-sky-600/25 hover:shadow-lg hover:shadow-sky-600/30 hover:-translate-y-0.5 duration-200"
               >
-                <span>Explore Portfolio Businesses</span>
+                <span>{hero.primaryCtaLabel || 'Explore Portfolio Businesses'}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/about"
+                to={hero.secondaryCtaLink || '/about'}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-800 bg-white border border-slate-300 hover:border-slate-500 hover:bg-slate-50 transition-all shadow-xs hover:-translate-y-0.5 duration-200"
               >
                 <Compass className="w-4 h-4 text-[#0284C7]" />
-                <span>Corporate Profile</span>
+                <span>{hero.secondaryCtaLabel || 'Corporate Profile'}</span>
               </Link>
             </div>
 

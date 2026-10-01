@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe2, MapPin } from 'lucide-react';
+import { ArrowRight, Globe2 } from 'lucide-react';
+import { useCMS } from '../../context/CMSContext';
 
 export const GlobalPerspectivePreview: React.FC = () => {
+  const { cmsData } = useCMS();
+  const hero = cmsData.hero;
   return (
     <section className="bg-white py-24 border-b border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -70,17 +73,16 @@ export const GlobalPerspectivePreview: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-[#0284C7]">
               <Globe2 className="w-4 h-4 text-[#0284C7]" />
-              <span>International Perspective</span>
+              <span>{hero.globalBadge || 'International Perspective'}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              Local Foundations. <br />
-              International Outlook.
+              {hero.globalHeadline || 'Local Foundations. International Outlook.'}
             </h2>
 
             <p className="text-base text-slate-700 leading-relaxed font-medium">
-              TISS Co. Ltd. (TISS Corporation) operates across autonomous international chapters including
-              Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India.
+              {hero.globalSubheadline ||
+                'TISS Co. Ltd. (TISS Corporation) operates across autonomous international chapters including Bangladesh, Hong Kong, Thailand, United Kingdom (UK), China, and India.'}
             </p>
 
             <div className="space-y-4 pt-1">
@@ -107,10 +109,10 @@ export const GlobalPerspectivePreview: React.FC = () => {
 
             <div className="pt-2">
               <Link
-                to="/global-presence"
+                to={hero.globalCtaLink || '/global-presence'}
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white bg-[#0284C7] hover:bg-[#0369A1] px-6 py-3.5 transition-colors shadow-sm"
               >
-                <span>Explore Global Presence</span>
+                <span>{hero.globalCtaLabel || 'Explore Global Presence'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

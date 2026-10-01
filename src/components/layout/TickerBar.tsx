@@ -1,46 +1,35 @@
 import React from 'react';
-import { MapPin, Mail, Sparkles, Building2, Megaphone, ArrowUpRight, Globe2 } from 'lucide-react';
+import { MapPin, Mail, Sparkles, Building2, Megaphone, ArrowUpRight, Globe2, Link as LinkIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCMS } from '../../context/CMSContext';
+import { TickerIconType } from '../../types/cms';
 
 export const TickerBar: React.FC = () => {
-  const tickerItems = [
-    {
-      icon: <Building2 className="w-3.5 h-3.5 text-[#38BDF8]" />,
-      label: 'Corporate Office',
-      text: 'House-59, 6th Floor, Road-13, Sector-13, Uttara, Dhaka-1230',
-      action: null,
-    },
-    {
-      icon: <MapPin className="w-3.5 h-3.5 text-[#F59E0B]" />,
-      label: 'Registered Office',
-      text: 'House-28, 6th Floor, 9 Ave., Sec-15D, Uttara, Dhaka-1230',
-      action: null,
-    },
-    {
-      icon: <Mail className="w-3.5 h-3.5 text-emerald-400" />,
-      label: 'Corporate Emails',
-      text: 'info@tisscoltd.com · tisscorporation@gmail.com',
-      action: 'mailto:info@tisscoltd.com',
-    },
-    {
-      icon: <Globe2 className="w-3.5 h-3.5 text-[#38BDF8]" />,
-      label: 'Global Operations',
-      text: 'Operations Across Autonomous Chapters: Bangladesh, Hong Kong, Thailand, UK, China, and India',
-      action: '/global-presence',
-    },
-    {
-      icon: <Sparkles className="w-3.5 h-3.5 text-amber-400" />,
-      label: 'Retail Operations',
-      text: 'Qubely Mega Mart Ltd. incorporated, prime retail premises secured, vendor procurement active ahead of launch',
-      action: '/businesses/qubely-mega-mart',
-    },
-    {
-      icon: <Building2 className="w-3.5 h-3.5 text-[#38BDF8]" />,
-      label: 'TISS Corporation',
-      text: 'Diversified Business Group · 10 Specialized Portfolio Entities · Activities in Bangladesh Since 2017',
-      action: '/about',
-    },
-  ];
+  const { cmsData } = useCMS();
+  const { enabled, speed, badgeLabel, items } = cmsData.ticker;
+
+  if (!enabled || !items || items.length === 0) {
+    return null;
+  }
+
+  const renderIcon = (type: TickerIconType) => {
+    switch (type) {
+      case 'office':
+        return <Building2 className="w-3.5 h-3.5 text-[#38BDF8]" />;
+      case 'pin':
+        return <MapPin className="w-3.5 h-3.5 text-[#F59E0B]" />;
+      case 'mail':
+        return <Mail className="w-3.5 h-3.5 text-emerald-400" />;
+      case 'global':
+        return <Globe2 className="w-3.5 h-3.5 text-[#38BDF8]" />;
+      case 'sparkle':
+        return <Sparkles className="w-3.5 h-3.5 text-amber-400" />;
+      case 'announcement':
+        return <Megaphone className="w-3.5 h-3.5 text-[#38BDF8]" />;
+      default:
+        return <Sparkles className="w-3.5 h-3.5 text-sky-400" />;
+    }
+  };
 
   return (
     <div className="bg-[#0B1522] text-slate-200 border-b border-slate-800 text-xs overflow-hidden relative select-none">
@@ -53,22 +42,25 @@ export const TickerBar: React.FC = () => {
           </span>
           <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#38BDF8] flex items-center gap-1">
             <Megaphone className="w-3 h-3 text-[#38BDF8]" />
-            <span>TISS WIRE</span>
+            <span>{badgeLabel || 'TISS WIRE'}</span>
           </span>
         </div>
 
-        {/* Continuous Animated Marquee Ticker Track */}
+        {/* Continuous Animated Marquee Ticker Track with Dynamic Speed */}
         <div className="overflow-hidden flex-1 relative py-2">
           {/* Gradient fade on edges */}
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0B1522] to-transparent pointer-events-none z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0B1522] to-transparent pointer-events-none z-10" />
 
-          <div className="animate-ticker flex items-center gap-8 whitespace-nowrap">
+          <div
+            className="animate-ticker flex items-center gap-8 whitespace-nowrap"
+            style={{ animationDuration: `${speed || 125}s` }}
+          >
             {/* Set 1 */}
-            {tickerItems.map((item, idx) => (
-              <div key={`t1-${idx}`} className="inline-flex items-center gap-2 text-xs">
+            {items.map((item, idx) => (
+              <div key={`t1-${item.id || idx}`} className="inline-flex items-center gap-2 text-xs">
                 <span className="flex items-center gap-1 font-semibold text-slate-300">
-                  {item.icon}
+                  {renderIcon(item.iconType)}
                   <span className="text-[11px] font-mono uppercase text-[#38BDF8] font-bold">
                     {item.label}:
                   </span>
@@ -98,10 +90,10 @@ export const TickerBar: React.FC = () => {
             ))}
 
             {/* Set 2 (Duplicate for seamless loop) */}
-            {tickerItems.map((item, idx) => (
-              <div key={`t2-${idx}`} className="inline-flex items-center gap-2 text-xs">
+            {items.map((item, idx) => (
+              <div key={`t2-${item.id || idx}`} className="inline-flex items-center gap-2 text-xs">
                 <span className="flex items-center gap-1 font-semibold text-slate-300">
-                  {item.icon}
+                  {renderIcon(item.iconType)}
                   <span className="text-[11px] font-mono uppercase text-[#38BDF8] font-bold">
                     {item.label}:
                   </span>
